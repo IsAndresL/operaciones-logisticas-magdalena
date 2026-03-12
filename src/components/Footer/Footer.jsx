@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import LegalModal from '../LegalModal/LegalModal'
 import './Footer.css'
 
 const navLinks = [
@@ -8,6 +10,82 @@ const navLinks = [
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
+  const [modalContent, setModalContent] = useState(null) // null | 'terminos' | 'privacidad'
+
+  const handleOpenModal = (e, type) => {
+    e.preventDefault()
+    setModalContent(type)
+  }
+
+  const renderModalContent = () => {
+    if (modalContent === 'terminos') {
+      return {
+        title: 'Términos y Condiciones del Servicio',
+        content: (
+          <>
+            <div className="legal-text-section">
+              <h3>1. Aceptación de los Términos</h3>
+              <p>Al acceder y utilizar el sitio web y los servicios de Operaciones Logísticas del Magdalena (OLM), usted acepta cumplir con estos Términos y Condiciones. Si no está de acuerdo con alguna parte, por favor absténgase de usar nuestros servicios.</p>
+            </div>
+            <div className="legal-text-section">
+              <h3>2. Naturaleza del Servicio</h3>
+              <p>OLM actúa como operador logístico en la recolección, transporte y distribución de mercancías en el departamento del Magdalena, incluyendo modalidades de última milla, operando como intermediario y aliado logístico directo e indirecto (ej. Xcargo).</p>
+            </div>
+            <div className="legal-text-section">
+              <h3>3. Responsabilidades del Remitente</h3>
+              <ul>
+                <li>Garantizar que la información y documentación de la mercancía sea veraz y completa.</li>
+                <li>Empacar adecuadamente los productos para evitar daños durante su movilización.</li>
+                <li>Declarar artículos frágiles, perecederos o que requieran manejo especial.</li>
+              </ul>
+            </div>
+            <div className="legal-text-section">
+              <h3>4. Tiempos de Entrega</h3>
+              <p>Los tiempos estimados de distribución están sujetos a factores externos (condiciones climáticas, alteraciones del orden público, estado de las vías). OLM buscará siempre el cumplimiento oportuno, sin embargo, los tiempos mencionados constituyen una estimación y no una garantía estricta.</p>
+            </div>
+            <div className="legal-text-section">
+              <h3>5. Modificaciones</h3>
+              <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Los cambios entrarán en vigencia inmediatamente tras su publicación en esta página.</p>
+            </div>
+          </>
+        )
+      }
+    }
+    if (modalContent === 'privacidad') {
+      return {
+        title: 'Política de Tratamiento de Datos',
+        content: (
+          <>
+            <div className="legal-text-section">
+              <h3>1. Objetivo (Ley 1581 de 2012)</h3>
+              <p>Operaciones Logísticas del Magdalena, en estricto cumplimiento del marco legal colombiano (Habeas Data), garantiza la protección, privacidad y confidencialidad de los datos personales suministrados por clientes, proveedores, colaboradores y aliados.</p>
+            </div>
+            <div className="legal-text-section">
+              <h3>2. Finalidad de la Recolección</h3>
+              <p>La información recopilada mediante formularios, rastreos de paquetes (cookies) o canales de atención directa, será utilizada exclusivamente para:</p>
+              <ul>
+                <li>Ejecutar la prestación de servicios logísticos y de transporte.</li>
+                <li>Actualizar bases de datos comerciales, operativas y facturación.</li>
+                <li>Enviar notificaciones sobre el estado de guías y envíos.</li>
+                <li>Medición analítica para mejoramiento corporativo e interno de la interfaz web.</li>
+              </ul>
+            </div>
+            <div className="legal-text-section">
+              <h3>3. Derechos de los Titulares</h3>
+              <p>Usted tiene derecho en cualquier momento a conocer, actualizar, rectificar y solicitar la supresión de sus datos personales. Para ejercer estos derechos, debe enviar una solicitud formal a nuestro canal corporativo: empresas@oplogmagdalena.com.</p>
+            </div>
+            <div className="legal-text-section">
+              <h3>4. Protección de la Información</h3>
+              <p>Empleamos estrictos protocolos de seguridad tecnológica y física para prevenir el acceso no autorizado, alteración o filtración de la información de nuestros clientes corporativos y usuarios finales.</p>
+            </div>
+          </>
+        )
+      }
+    }
+    return null
+  }
+
+  const modalData = renderModalContent()
 
   return (
     <footer className="pie-pagina">
@@ -73,11 +151,20 @@ const Footer = () => {
         <div className="pie-pagina__inferior">
           <p>© {currentYear} Operaciones Logísticas del Magdalena S.A.S. Todos los derechos reservados.</p>
           <div className="pie-pagina__legal">
-            <a href="#">Términos y Condiciones del Servicio</a>
-            <a href="#">Política de Tratamiento de Datos</a>
+            <a href="#terminos" onClick={(e) => handleOpenModal(e, 'terminos')}>Términos y Condiciones del Servicio</a>
+            <a href="#privacidad" onClick={(e) => handleOpenModal(e, 'privacidad')}>Política de Tratamiento de Datos</a>
           </div>
         </div>
       </div>
+      
+      {modalData && (
+        <LegalModal 
+          isOpen={!!modalContent}
+          onClose={() => setModalContent(null)}
+          title={modalData.title}
+          content={modalData.content}
+        />
+      )}
     </footer>
   )
 }

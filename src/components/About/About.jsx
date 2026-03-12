@@ -9,7 +9,7 @@ const reasons = [
   },
   {
     title: 'Talento Especializado',
-    description: 'Personal operativo capacitado para manejo de cargas complejas',
+    description: 'Personal operativo y de atención capacitado para manejo seguro de su carga',
     icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>,
   },
   {
@@ -29,7 +29,7 @@ const reasons = [
   },
   {
     title: 'Soporte Continuo',
-    description: 'Monitoreo y atención a requerimientos corporativos 24/7',
+    description: 'Monitoreo y atención orientada a solucionar sus requerimientos 24/7',
     icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>,
   },
 ]
@@ -54,7 +54,7 @@ const About = () => {
             CÓMO AGREGAMOS <span className="accent">VALOR</span>
           </h2>
           <p className="section-desc section-desc--center">
-            Su operador logístico B2B de confianza con infraestructura en el Magdalena
+            Su operador logístico de confianza con la mayor cobertura en el Magdalena
           </p>
         </div>
 

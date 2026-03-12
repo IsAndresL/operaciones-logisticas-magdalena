@@ -1,0 +1,117 @@
+/* ========================================
+   Componente: Banner de Cookies y Privacidad
+   ======================================== */
+.cookie-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--bg-white);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 48px rgba(21, 96, 189, 0.15);
+  padding: 24px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cookie-banner__contenido {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1;
+}
+
+.cookie-banner__icono {
+  width: 40px;
+  height: 40px;
+  background: rgba(33, 118, 255, 0.1);
+  color: var(--azul-primario);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cookie-banner__texto {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cookie-banner__titulo {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--text-navy);
+  font-size: 1.1rem;
+}
+
+.cookie-banner__desc {
+  font-size: 0.88rem;
+  color: var(--text-body);
+  line-height: 1.5;
+}
+
+.cookie-banner__acciones {
+  flex-shrink: 0;
+}
+
+.cookie-banner__btn {
+  background: var(--azul-primario);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(33, 118, 255, 0.2);
+  white-space: nowrap;
+}
+
+.cookie-banner__btn:hover {
+  background: var(--azul-royal);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(33, 118, 255, 0.3);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .cookie-banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    padding: 20px;
+  }
+  
+  .cookie-banner__acciones {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .cookie-banner__btn {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+  }
+}

@@ -6,6 +6,7 @@ import About from './components/About/About'
 import Testimonials from './components/Testimonials/Testimonials'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
+import CookieBanner from './components/CookieBanner/CookieBanner'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <CookieBanner />
     </>
   )
 }

@@ -8,14 +8,14 @@ const services = [
     id: 'media-milla',
     title: 'Media Milla (Distribución Regional)',
     accent: '#2176FF',
-    description: 'Solución logística integral para cargas fraccionadas y consolidadas dentro del departamento.',
+    description: 'Solución logística integral para recolección en puerto y distribución directa en el departamento.',
     features: [
-      'Flota corporativa de 5 a 8 toneladas',
+      'Entregas directas a domicilio',
       'Rutas urbanas e intermunicipales',
-      'Entregas programadas y recurrentes',
-      'Trazabilidad GPS en tiempo real',
+      'Despachos programados y recurrentes',
+      'Seguimiento de envíos',
     ],
-    price: 'Tarifas corporativas B2B',
+    price: 'Tarifas competitivas',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="1" y="3" width="15" height="13" rx="2" />
@@ -27,16 +27,16 @@ const services = [
   },
   {
     id: 'milla-completa',
-    title: 'Milla Completa (Carga Pesada)',
+    title: 'Milla Completa (Carga Consolidada)',
     accent: '#00BFFF',
-    description: 'Operaciones de transporte de alto volumen para abastecimiento industrial y comercial.',
+    description: 'Transporte eficiente para abastecimiento, garantizando que su mercancía fluya sin interrupciones.',
     features: [
-      'Tractocamiones de hasta 34 toneladas',
-      'Cobertura total departamental',
-      'Operativa completa de cargue/descargue',
-      'Póliza de seguro integral aplicada',
+      'Alianza logística estratégica',
+      'Cobertura departamental amplia',
+      'Cargue y descargue seguro',
+      'Manejo cuidadoso de la mercancía',
     ],
-    price: 'Contratos a medida',
+    price: 'Servicio garantizado',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 17h1m0 0a2 2 0 104 0m-4 0a2 2 0 104 0m2 0h4m0 0a2 2 0 104 0m-4 0a2 2 0 104 0M3 17V7a2 2 0 012-2h9v12" />
@@ -66,7 +66,7 @@ const Services = () => {
             PORTAFOLIO DE <span className="accent">SERVICIOS</span>
           </h2>
           <p className="section-desc section-desc--center">
-            Soluciones logísticas corporativas adaptadas a las exigencias operativas y de distribución en el Magdalena.
+            Soluciones logísticas ágiles y confiables para conectar mercancías con su destino final en el Magdalena.
           </p>
         </div>
 
@@ -91,9 +91,9 @@ const Services = () => {
                   </li>
                 ))}
               </ul>
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="servicios__cta-tarjeta" style={{ background: `linear-gradient(135deg, ${s.accent}, #00BFFF)` }}>
-                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52s.198-.298.298-.497c.099-.198.05-.371-.025-.52s-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51a13 13 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074s2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413s.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413"/></svg>
-                Agendar Asesoría B2B
+              <a href="#contacto" className="servicios__cta-tarjeta" style={{ background: `linear-gradient(135deg, ${s.accent}, #00BFFF)` }}>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Contactar Ahora
               </a>
             </div>
           ))}
