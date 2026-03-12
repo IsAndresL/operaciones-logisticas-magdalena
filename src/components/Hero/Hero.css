@@ -99,19 +99,7 @@
   transform: translateY(-2px);
 }
 
-.inicio__cta-servicios {
-  display: inline-flex; align-items: center; justify-content: center; /* Mejor alineación en móviles */
-  padding: 16px 32px;
-  background: rgba(255,255,255,0.15); /* Estilo Glassmorphism Corporativo */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: #fff;
-  font-size: 1.05rem;
-  font-weight: 700;
-  border: 2px solid rgba(255,255,255,0.4);
-  border-radius: var(--radius-sm);
-  transition: var(--transition-fast);
-}
+
 .inicio__cta-servicios:hover {
   background: rgba(255,255,255,0.25);
   border-color: rgba(255,255,255,0.8);

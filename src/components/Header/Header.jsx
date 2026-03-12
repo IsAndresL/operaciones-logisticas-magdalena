@@ -16,9 +16,31 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [guia, setGuia] = useState('')
+  const [hideTracking, setHideTracking] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60)
+    let lastScrollY = window.scrollY
+    let ticking = false
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY
+          setScrolled(currentScrollY > 60)
+          
+          if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            setHideTracking(true)
+          } else if (currentScrollY < lastScrollY) {
+            setHideTracking(false)
+          }
+
+          lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -36,7 +58,7 @@ const Header = () => {
   return (
     <>
       {/* Top tracking bar */}
-      <div className="tracking-bar" id="tracking-bar">
+      <div className={`tracking-bar ${hideTracking ? 'tracking-bar--hidden' : ''}`} id="tracking-bar">
         <div className="container tracking-bar__inner">
           <span className="tracking-bar__label">Rastrea tu envio:</span>
           <form className="tracking-bar__form" onSubmit={handleRastrear}>
@@ -59,7 +81,7 @@ const Header = () => {
       </div>
 
       {/* Navbar */}
-      <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} id="header-principal">
+      <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${hideTracking ? 'navbar--lifted' : ''}`} id="header-principal">
         <div className="container navbar__inner">
           <a href="/" className="navbar__logo" id="header-logo">
             <img src="/logos/solo-logo.png" alt="OLM Logo" className="navbar__logo-img" width="48" height="48" />

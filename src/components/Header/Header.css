@@ -8,6 +8,10 @@
   background: linear-gradient(90deg, #1560BD, #2176FF);
   padding: 10px 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.tracking-bar--hidden {
+  transform: translateY(-100%);
 }
 .tracking-bar__inner {
   display: flex;
@@ -60,19 +64,22 @@
    ======================================== */
 .navbar {
   position: fixed;
-  top: 44px;
+  top: 44px; /* Default top offset below tracking bar */
   left: 0;
   right: 0;
   z-index: 40;
   background: rgba(255,255,255,0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: background 0.3s ease, box-shadow 0.3s ease, top 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .navbar--scrolled {
   background: rgba(255,255,255,0.95);
   backdrop-filter: blur(16px);
   box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+.navbar--lifted {
+  transform: translateY(-44px);
 }
 
 .navbar__inner {

@@ -149,8 +149,15 @@ const Footer = () => {
         </div>
 
         <div className="pie-pagina__inferior">
-          <p>© {currentYear} Operaciones Logísticas del Magdalena S.A.S. Todos los derechos reservados.</p>
-          <div className="pie-pagina__legal">
+          <div className="pie-pagina__derechos">
+            <p>© {currentYear} Operaciones Logísticas del Magdalena S.A.S. Todos los derechos reservados.</p>
+          </div>
+          
+          <div className="pie-pagina__autor-container" style={{ textAlign: 'center', flex: '1 1 100%', order: 3, marginTop: '12px' }}>
+             <p className="pie-pagina__autor">Powered by Ing. Andres Luna</p>
+          </div>
+
+          <div className="pie-pagina__legal" style={{ order: 2 }}>
             <a href="#terminos" onClick={(e) => handleOpenModal(e, 'terminos')}>Términos y Condiciones del Servicio</a>
             <a href="#privacidad" onClick={(e) => handleOpenModal(e, 'privacidad')}>Política de Tratamiento de Datos</a>
           </div>

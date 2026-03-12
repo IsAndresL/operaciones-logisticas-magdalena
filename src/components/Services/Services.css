@@ -1,7 +1,7 @@
 /* ========================================
    Componente: Servicios — Portafolio B2B
    ======================================== */
-.servicios { background: var(--bg-white); }
+.servicios { background: var(--bg-light); }
 .servicios__encabezado { margin-bottom: 48px; }
 .servicios__cuadricula { 
   display: grid; 
