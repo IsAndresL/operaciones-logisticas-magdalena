@@ -1,278 +1,255 @@
 /* ========================================
-   Header — Dynamic Island Style
+   Tracking Bar (top blue strip)
    ======================================== */
-
-.header {
-  position: fixed;
-  top: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  width: calc(100% - 48px);
-  max-width: 1200px;
+.tracking-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(90deg, #1560BD, #2176FF);
+  padding: 10px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+.tracking-bar__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 8px 8px 8px 16px;
-  background: var(--glass-bg);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-pill);
-  box-shadow: var(--glass-shadow);
-  transition: var(--transition-smooth);
+  gap: 16px;
 }
-
-.header:hover {
-  box-shadow: var(--glass-shadow-lg);
-}
-
-/* ---- Logo ---- */
-.header__logo {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.header__logo-img {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-full);
-  object-fit: cover;
-  transition: var(--transition-fast);
-}
-
-.header__logo-img:hover {
-  transform: scale(1.08);
-}
-
-/* ---- Navegación ---- */
-.header__nav {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.header__nav-link {
-  position: relative;
-  padding: 8px 16px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--texto-secundario);
-  border-radius: var(--radius-full);
-  transition: var(--transition-fast);
+.tracking-bar__label {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.88rem;
   white-space: nowrap;
 }
-
-.header__nav-link:hover {
-  color: var(--azul-primario);
-  background: rgba(27, 79, 114, 0.06);
+.tracking-bar__form {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+  max-width: 400px;
 }
-
-.header__nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 4px;
-  left: 50%;
-  transform: translateX(-50%) scaleX(0);
-  width: 20px;
-  height: 2px;
-  background: var(--magenta);
-  border-radius: 1px;
+.tracking-bar__input {
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  border: none;
+  outline: none;
+  font-size: 0.88rem;
+  font-family: var(--font-body);
+}
+.tracking-bar__input:focus {
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.5);
+}
+.tracking-bar__btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  background: #fff;
+  color: #1560BD;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
   transition: var(--transition-fast);
 }
-
-.header__nav-link:hover::after {
-  transform: translateX(-50%) scaleX(1);
+.tracking-bar__btn:hover {
+  background: #f0f0f0;
 }
 
 /* ========================================
-   Isla Dinámica — Rastrear Guía
+   Navbar
    ======================================== */
+.navbar {
+  position: fixed;
+  top: 44px;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background 0.3s ease, box-shadow 0.3s ease, top 0.3s ease;
+}
+.navbar--scrolled {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
 
-.header__island {
-  position: relative;
+.navbar__inner {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+/* Logo */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.navbar__logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: var(--radius-full);
+}
+.navbar__logo-text {
+  display: flex;
+  flex-direction: column;
+}
+.navbar__logo-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-navy);
+  line-height: 1.2;
+}
+.navbar__logo-sub {
+  font-size: 0.75rem;
+  color: var(--text-body);
+}
+
+/* Links */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.navbar__link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-navy);
+  transition: color var(--transition-fast);
+}
+.navbar__link:hover {
+  color: var(--azul-primario);
+}
+
+/* Actions */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.navbar__phone {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-navy);
+}
+.navbar__phone svg { color: var(--azul-primario); }
+
+.navbar__wa-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--verde-wa);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(37,211,102,0.25);
+}
+.navbar__wa-btn:hover {
+  background: var(--verde-wa-hover);
+}
+
+/* Burger */
+.navbar__burger {
+  display: none;
+  flex-direction: column;
   justify-content: center;
-  height: 44px;
-  background: var(--azul-primario);
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  overflow: hidden;
-  flex-shrink: 0;
-
-  /* Animación Dynamic Island con spring */
-  min-width: 160px;
-  padding: 0 18px;
-  transition:
-    min-width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
-    padding 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
-    background 0.4s ease,
-    box-shadow 0.4s ease;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
 }
-
-.header__island:hover {
-  min-width: 360px;
-  padding: 0 6px 0 16px;
-  background: linear-gradient(135deg, var(--azul-primario) 0%, var(--azul-medio) 100%);
-  box-shadow: 0 6px 28px rgba(27, 79, 114, 0.35);
-}
-
-/* Estado colapsado: botón "Rastrear Guía" */
-.header__island-collapsed {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-  color: white;
-  transition: opacity 0.25s ease, transform 0.3s ease;
-  pointer-events: none;
-}
-
-.header__island:hover .header__island-collapsed {
-  opacity: 0;
-  transform: scale(0.85);
-  position: absolute;
-}
-
-.header__island-icon {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-}
-
-.header__island-label {
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-
-/* Estado expandido: formulario con input */
-.header__island-expanded {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.navbar__burger span {
+  display: block;
   width: 100%;
-  opacity: 0;
-  transform: scale(0.85);
-  transition:
-    opacity 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-    transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
-  position: absolute;
-  pointer-events: none;
-}
-
-.header__island:hover .header__island-expanded {
-  opacity: 1;
-  transform: scale(1);
-  position: relative;
-  pointer-events: auto;
-}
-
-.header__island-search-icon {
-  width: 16px;
-  height: 16px;
-  color: rgba(255, 255, 255, 0.5);
-  flex-shrink: 0;
-}
-
-.header__island-input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: white;
-  font-size: 0.82rem;
-  font-family: var(--font-family);
-  font-weight: 400;
-  min-width: 0;
-}
-
-.header__island-input::placeholder {
-  color: rgba(255, 255, 255, 0.45);
-}
-
-.header__island-btn {
-  padding: 7px 16px;
-  background: var(--magenta);
-  color: white;
-  font-size: 0.78rem;
-  font-weight: 600;
-  border-radius: var(--radius-full);
+  height: 2px;
+  background: var(--text-navy);
+  border-radius: 1px;
   transition: var(--transition-fast);
-  white-space: nowrap;
-  flex-shrink: 0;
-  font-family: var(--font-family);
+  transform-origin: center;
 }
+.navbar__burger--open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar__burger--open span:nth-child(2) { opacity: 0; }
+.navbar__burger--open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-.header__island-btn:hover {
-  background: var(--magenta-hover);
-  transform: scale(1.05);
+/* Mobile Drawer */
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  visibility: hidden;
 }
+.mobile-drawer--open { pointer-events: auto; visibility: visible; }
 
-/* Pulso sutil en el estado colapsado */
-@keyframes island-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(27, 79, 114, 0.25); }
-  50% { box-shadow: 0 0 0 5px rgba(27, 79, 114, 0); }
+.mobile-drawer__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
+.mobile-drawer--open .mobile-drawer__overlay { opacity: 1; }
 
-.header__island {
-  animation: island-glow 3s ease-in-out infinite;
+.mobile-drawer__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  max-width: 85vw;
+  height: 100%;
+  background: #fff;
+  border-left: 1px solid var(--border-card);
+  padding: 100px 28px 28px;
+  transform: translateX(100%);
+  transition: transform 0.35s var(--ease-out);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
+.mobile-drawer--open .mobile-drawer__panel { transform: translateX(0); }
 
-.header__island:hover {
-  animation: none;
+.mobile-drawer__nav { display: flex; flex-direction: column; gap: 4px; }
+.mobile-drawer__link {
+  padding: 14px 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-navy);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
 }
+.mobile-drawer__link:hover { background: var(--bg-light); color: var(--azul-primario); }
 
-/* ---- Responsive ---- */
-@media (max-width: 768px) {
-  .header {
-    width: calc(100% - 24px);
-    padding: 6px 6px 6px 12px;
-    top: 10px;
-  }
-
-  .header__nav {
-    gap: 0;
-  }
-
-  .header__nav-link {
-    padding: 6px 10px;
-    font-size: 0.8rem;
-  }
-
-  .header__island {
-    min-width: 44px;
-    padding: 0 12px;
-  }
-
-  .header__island-label {
-    display: none;
-  }
-
-  .header__island:hover {
-    min-width: 260px;
-    padding: 0 6px 0 12px;
-  }
+.mobile-drawer__wa-btn {
+  display: block;
+  text-align: center;
+  padding: 14px;
+  background: var(--verde-wa);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
 }
+.mobile-drawer__wa-btn:hover { background: var(--verde-wa-hover); }
 
+/* Responsive */
+@media (max-width: 900px) {
+  .tracking-bar__label { display: none; }
+  .tracking-bar__form { max-width: 100%; }
+  .navbar__links, .navbar__actions { display: none; }
+  .navbar__burger { display: flex; }
+}
 @media (max-width: 480px) {
-  .header__nav-link {
-    padding: 6px 8px;
-    font-size: 0.75rem;
-  }
-
-  .header__island:hover {
-    min-width: 220px;
-  }
-
-  .header__island-input {
-    font-size: 0.75rem;
-  }
-
-  .header__island-btn {
-    padding: 6px 12px;
-    font-size: 0.72rem;
-  }
+  .tracking-bar__btn-text { display: none; }
 }

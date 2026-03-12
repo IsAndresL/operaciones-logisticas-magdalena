@@ -1,0 +1,157 @@
+/* ========================================
+   Componente: Casos de Éxito — Testimonios B2B
+   ======================================== */
+.testimonios {
+  background: var(--bg-light);
+}
+
+.testimonios__encabezado {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.testimonios__carrusel {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.testimonios__tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: center;
+}
+
+/* Tarjeta individual de Casos de Éxito */
+.testimonios__tarjeta {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s ease;
+}
+
+.testimonios__tarjeta--centro {
+  border: 1px solid rgba(33, 118, 255, 0.3);
+  box-shadow: 0 8px 40px rgba(21, 96, 189, 0.15);
+  transform: scale(1);
+  opacity: 1;
+  z-index: 2;
+}
+
+.testimonios__tarjeta--lateral {
+  border: 1px solid var(--border-card);
+  box-shadow: 0 4px 20px rgba(21, 96, 189, 0.06);
+  transform: scale(0.95);
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.testimonios__icono-comilla {
+  width: 40px; height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-light);
+  color: var(--azul-primario);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.testimonios__icono-comilla--activo {
+  background: var(--azul-primario);
+  color: #fff;
+}
+
+.testimonios__estrellas {
+  display: flex; gap: 4px; margin-bottom: 16px;
+}
+
+.testimonios__texto {
+  color: var(--text-body);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 24px;
+}
+
+/* Información del Cliente / Partner B2B */
+.testimonios__autor {
+  display: flex; gap: 12px; align-items: center;
+  border-top: 1px solid var(--border-card);
+  padding-top: 16px;
+}
+
+.testimonios__avatar {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--border-card);
+  color: var(--azul-royal);
+  font-weight: 700; font-size: 0.88rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.testimonios__avatar--activo {
+  background: linear-gradient(135deg, var(--azul-primario), var(--azul-cielo));
+  color: #fff;
+}
+
+.testimonios__nombre { font-weight: 700; color: var(--text-navy); font-size: 0.88rem; line-height: 1.1; margin-bottom: 2px; }
+.testimonios__rol { font-size: 0.75rem; color: var(--text-body); }
+.testimonios__ciudad {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 0.75rem; font-weight: 600; color: var(--azul-primario); margin-top: 2px;
+}
+.testimonios__punto-ciudad { width: 8px; height: 8px; background: var(--azul-cielo); border-radius: 50%; }
+
+/* Controles de Navegación */
+.testimonios__btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px;
+  background: #fff; color: var(--text-navy);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-full);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all var(--transition-fast);
+  z-index: 10;
+}
+.testimonios__btn:hover {
+  background: var(--azul-primario);
+  border-color: var(--azul-primario);
+  color: #fff;
+}
+.testimonios__btn--anterior { left: -24px; }
+.testimonios__btn--siguiente { right: -24px; }
+
+.testimonios__puntos {
+  display: flex; justify-content: center; gap: 8px;
+  margin-top: 32px;
+}
+.testimonios__punto {
+  width: 10px; height: 10px; border-radius: var(--radius-full);
+  background: var(--border-card); transition: all 0.3s ease;
+}
+.testimonios__punto--activo { width: 32px; background: var(--azul-primario); }
+
+/* Indicadores / Insignias de Confianza Institucionales */
+.testimonios__insignias {
+  display: flex; justify-content: center; flex-wrap: wrap; gap: 24px;
+  margin-top: 56px;
+}
+.testimonios__insignia {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 24px;
+  background: #fff; border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+.testimonios__numero-insignia { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 900; color: var(--azul-primario); }
+.testimonios__etiqueta-insignia { font-size: 0.88rem; color: var(--text-body); font-weight: 500;}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .testimonios__tarjetas { grid-template-columns: 1fr; }
+  .testimonios__tarjeta--lateral { display: none; }
+  .testimonios__btn--anterior { left: 0; }
+  .testimonios__btn--siguiente { right: 0; }
+}

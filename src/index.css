@@ -1,47 +1,61 @@
 /* ========================================
    Operaciones Logísticas del Magdalena
-   Global Styles — macOS Tahoe Light Mode
+   Design System — Estructura Corporativa B2B
    ======================================== */
 
 :root {
-  /* Paleta de marca */
-  --azul-primario: #1B4F72;
-  --azul-medio: #2471A3;
-  --azul-claro: #2E86C1;
-  --azul-cielo: #5DADE2;
-  --magenta: #E91E8C;
-  --magenta-hover: #FF2DA0;
+  /* Paleta Corporativa (Azules profesionales) */
+  --azul-oscuro: #0D1B3E; /* Azul marino profundo para textos y énfasis */
+  --azul-royal: #1560BD; /* Color secundario corporativo */
+  --azul-primario: #2176FF; /* Color de acción principal */
+  --azul-cielo: #00BFFF; /* Acentos ligeros */
 
-  /* Neutros macOS Tahoe */
-  --fondo: #F5F5F7;
-  --fondo-alt: #FFFFFF;
-  --texto: #1D1D1F;
-  --texto-secundario: #6E6E73;
-  --texto-claro: #FFFFFF;
+  /* Colores de Redes/Acciones Rápidas */
+  --verde-wa: #25D366; /* WhatsApp nativo */
+  --verde-wa-hover: #1ebe57;
 
-  /* Glass */
-  --glass-bg: rgba(255, 255, 255, 0.72);
-  --glass-bg-hover: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.35);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  --glass-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+  /* Fondos (Minimalistas y serios) */
+  --bg-white: #ffffff;
+  --bg-light: #F4F7FF; /* Fondo gris/azulado sutil para separar secciones */
+  --bg-blue-gradient: linear-gradient(135deg, #1560BD, #2176FF);
 
-  /* Tipografía */
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Colores de Texto */
+  --text-navy: #0D1B3E; /* Titulares y énfasis */
+  --text-body: #4A6080; /* Texto de párrafo principal, alta legibilidad */
+  --text-muted: #7A8BA4; /* Texto secundario */
 
-  /* Radios */
-  --radius-sm: 12px;
-  --radius-md: 20px;
-  --radius-lg: 28px;
-  --radius-pill: 50px;
+  /* Bordes */
+  --border-card: #DDE6F5; /* Separadores de tarjetas B2B */
+  --border-input: rgba(0, 0, 0, 0.1);
+
+  /* Sombras (Suaves, aportando profundidad sin ser abrumadoras) */
+  --shadow-card: 0 4px 24px rgba(21, 96, 189, 0.08); /* Sombra estándar para tarjetas */
+  --shadow-card-hover: 0 8px 32px rgba(21, 96, 189, 0.15); /* Sombra interactiva corporativa */
+  --shadow-hero: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+  /* Tipografía (Estilo limpio e institucional) */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Espaciado del Sistema */
+  --section-padding: 80px 0;
+  --container-width: 1200px;
+  --container-padding: 0 48px;
+
+  /* Bordes Redondeados */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
   --radius-full: 9999px;
 
-  /* Transiciones */
-  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Transiciones Globales */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.3s ease;
 }
 
+/* ---- Reseteo Base (Normalize) ---- */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -49,17 +63,18 @@
 }
 
 html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  scroll-behavior: smooth; /* Desplazamiento suave nativo */
+  -webkit-font-smoothing: antialiased; /* Optimización de fuentes para Mac */
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: var(--font-family);
-  background-color: var(--fondo);
-  color: var(--texto);
+  font-family: var(--font-body);
+  background-color: var(--bg-white);
+  color: var(--text-navy);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Previene scroll horizontal indeseado */
 }
 
 a {
@@ -68,7 +83,7 @@ a {
 }
 
 ul, ol {
-  list-style: none;
+  list-style: none; /* Elimina viñetas por defecto */
 }
 
 img {
@@ -83,20 +98,76 @@ button {
   font-family: inherit;
 }
 
-/* Scrollbar macOS style */
-::-webkit-scrollbar {
-  width: 8px;
+/* ---- Barra de Desplazamiento (Scrollbar) Estilizada ---- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.2); }
+
+/* ---- Contenedores y Layout General ---- */
+.section { padding: var(--section-padding); }
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: var(--container-padding);
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
+/* ---- Componente Global: Encabezados de Sección (Títulos principales) ---- */
+.section-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.5rem); /* Uso fluido B2B responsive */
+  font-weight: 900;
+  color: var(--text-navy);
+  line-height: 1.1;
+  margin-bottom: 16px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
+/* Marca de acento en el título */
+.section-heading .accent {
+  color: var(--azul-primario);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.25);
+/* Texto de descripción de la sección */
+.section-desc {
+  font-size: 1.1rem;
+  color: var(--text-body);
+  max-width: 640px;
+  line-height: 1.7;
+}
+
+.section-desc--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* ---- Clases Dinámicas de Entrada (Animaciones en Scroll) ---- */
+/* La clase .reveal la usan components como About y Services mediante IntersectionObserver */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ---- Componente Global: Caja de Icono con Degradado B2B ---- */
+.icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--azul-primario), var(--azul-cielo));
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+.icon-box svg { color: #fff; }
+
+/* ---- Reglas Responsivas Globales (Móviles / Tablets) ---- */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 64px 0; /* Reduce espaciado vertical en pantallas pequeñas */
+    --container-padding: 0 20px; /* Adapta el relleno lateral para mayor área táctil */
+  }
 }

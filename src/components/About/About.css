@@ -1,0 +1,60 @@
+/* ========================================
+   Componente: Nosotros — Propuesta de Valor B2B
+   ======================================== */
+.nosotros {
+  background: var(--bg-light);
+}
+
+.nosotros__encabezado {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.nosotros__cuadricula {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* Tarjetas de Ventajas Competitivas */
+.nosotros__tarjeta {
+  background: var(--bg-white);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nosotros__tarjeta:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.nosotros__icono {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 20px;
+}
+
+.nosotros__titulo-tarjeta {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-navy);
+  margin-bottom: 12px;
+}
+
+.nosotros__descripcion-tarjeta {
+  color: var(--text-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .nosotros__cuadricula { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .nosotros__cuadricula { grid-template-columns: 1fr; }
+}

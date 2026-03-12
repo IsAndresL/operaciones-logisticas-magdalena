@@ -1,0 +1,134 @@
+/* ========================================
+   Componentes: Llamado a la Acción (CTA) & Contacto
+   ======================================== */
+
+/* ---- Sección: Llamado a la Acción (CTA) ---- */
+.cta {
+  position: relative;
+  background: var(--bg-white);
+  overflow: hidden;
+  text-align: center;
+}
+.cta__fondo-brillo {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at center, rgba(33, 118, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta__contenedor { position: relative; z-index: 10; max-width: 900px; margin: 0 auto; }
+.cta__acciones {
+  display: flex; justify-content: center; align-items: center; gap: 16px;
+  margin-top: 32px; flex-wrap: wrap;
+}
+.cta__btn {
+  display: flex; align-items: center; gap: 8px;
+  padding: 16px 40px; border-radius: var(--radius-md);
+  font-weight: 700; font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+.cta__btn--primario {
+  background: var(--verde-wa); color: #fff;
+  box-shadow: 0 8px 32px rgba(37,211,102,0.3);
+}
+.cta__btn--primario:hover {
+  background: var(--verde-wa-hover); transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(37,211,102,0.4);
+}
+.cta__flecha { transition: transform 0.3s ease; }
+.cta__btn--primario:hover .cta__flecha { transform: translateX(4px); }
+
+.cta__btn--secundario {
+  border: 2px solid var(--azul-primario); color: var(--azul-primario);
+}
+.cta__btn--secundario:hover { background: var(--azul-primario); color: #fff; }
+
+.cta__estadisticas {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+  margin-top: 64px; max-width: 600px; margin-left: auto; margin-right: auto;
+}
+.cta__valor-estadistica { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 900; color: var(--azul-primario); line-height: 1.1; margin-bottom: 8px; }
+.cta__etiqueta-estadistica { font-size: 0.88rem; color: var(--text-body); font-weight: 500; }
+
+/* ---- Sección: Contacto B2B ---- */
+.contacto { background: var(--bg-light); border-top: 1px solid var(--border-card); }
+.contacto__contenedor { display: grid; grid-template-columns: 1fr 1.5fr; gap: 64px; align-items: start; }
+
+.contacto__desc { color: var(--text-body); font-size: 1.05rem; margin-bottom: 40px; line-height: 1.6; }
+
+.contacto__detalles { display: flex; flex-direction: column; gap: 32px; }
+.contacto__detalles li { display: flex; align-items: flex-start; gap: 16px; }
+.contacto__icono { width: 48px; height: 48px; }
+.contacto__detalles strong { display: block; color: var(--text-navy); font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+.contacto__detalles span { display: block; color: var(--text-body); font-size: 0.95rem; }
+
+/* Formulario Comercial */
+.contacto__formulario {
+  background: var(--bg-white);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: var(--shadow-card);
+}
+.contacto__titulo-formulario { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 900; color: var(--text-navy); margin-bottom: 24px; border-bottom: 1px solid var(--border-card); padding-bottom: 16px; }
+
+.contacto__cuadricula { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.contacto__grupo { display: flex; flex-direction: column; gap: 8px; }
+.contacto__grupo--completo { grid-column: 1 / -1; }
+
+.contacto__grupo label { font-size: 0.88rem; font-weight: 600; color: var(--text-navy); }
+.contacto__grupo input,
+.contacto__grupo select,
+.contacto__grupo textarea {
+  width: 100%; padding: 12px 16px;
+  background: var(--bg-light);
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.95rem; color: var(--text-navy);
+  transition: all var(--transition-fast);
+  outline: none;
+}
+.contacto__grupo input:focus,
+.contacto__grupo select:focus,
+.contacto__grupo textarea:focus {
+  background: var(--bg-white);
+  border-color: var(--azul-primario);
+  box-shadow: 0 0 0 4px rgba(33, 118, 255, 0.1);
+}
+
+.contacto__envoltura-select { position: relative; }
+.contacto__envoltura-select select { appearance: none; padding-right: 40px; cursor: pointer; }
+.contacto__envoltura-select::after {
+  content: ''; position: absolute; right: 16px; top: 50%; width: 10px; height: 6px;
+  background-color: var(--text-navy);
+  clip-path: polygon(100% 0%, 50% 100%, 0% 0%, 10% 0%, 50% 80%, 90% 0%);
+  transform: translateY(-50%); pointer-events: none;
+}
+
+.contacto__enviar {
+  width: 100%; padding: 16px; border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--azul-primario), var(--azul-cielo));
+  color: #fff; font-weight: 700; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.contacto__enviar:hover {
+  box-shadow: 0 8px 24px rgba(33, 118, 255, 0.3); transform: translateY(-2px);
+}
+
+.contacto__exito {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 48px 0; gap: 16px;
+}
+.contacto__exito svg { background: rgba(37,211,102,0.1); padding: 12px; border-radius: 50%; }
+.contacto__exito p { color: var(--text-navy); font-weight: 500; font-size: 1.1rem; }
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .contacto__contenedor { grid-template-columns: 1fr; gap: 48px; }
+  .cta__estadisticas { grid-template-columns: 1fr; gap: 16px; }
+}
+@media (max-width: 600px) {
+  .contacto__cuadricula { grid-template-columns: 1fr; }
+  .cta__acciones { flex-direction: column; }
+  .cta__btn { width: 100%; justify-content: center; }
+}

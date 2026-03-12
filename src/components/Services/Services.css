@@ -1,0 +1,75 @@
+/* ========================================
+   Componente: Servicios — Portafolio B2B
+   ======================================== */
+.servicios { background: var(--bg-white); }
+.servicios__encabezado { margin-bottom: 48px; }
+.servicios__cuadricula { 
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 32px; 
+  max-width: 900px; 
+  margin: 0 auto; 
+}
+
+/* Tarjeta Principal de Servicio B2B */
+.servicios__tarjeta {
+  background: #fff;
+  border: 1px solid var(--border-card);
+  border-top: 4px solid transparent;
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.servicios__tarjeta:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.servicios__cabecera-tarjeta { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+
+/* Icono corporativo con degradado dinámico */
+.servicios__icono-tarjeta {
+  width: 64px; height: 64px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.servicios__icono-tarjeta svg { width: 32px; height: 32px; color: #fff; }
+
+.servicios__titulo-tarjeta {
+  font-family: var(--font-heading);
+  font-size: 1.6rem; 
+  font-weight: 900;
+  color: var(--text-navy);
+  line-height: 1.1;
+}
+
+.servicios__precio-tarjeta { font-size: 0.88rem; font-weight: 700; }
+.servicios__descripcion-tarjeta { color: var(--text-body); font-size: 1rem; margin-bottom: 20px; line-height: 1.6; }
+
+/* Lista de ventajas corporativas */
+.servicios__lista-caracteristicas { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+.servicios__lista-caracteristicas li { display: flex; align-items: flex-start; gap: 10px; color: var(--text-body); font-size: 0.92rem; font-weight: 500;}
+
+.servicios__checklist {
+  width: 20px; height: 20px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 0.7rem; font-weight: 700;
+  flex-shrink: 0; margin-top: 2px;
+}
+
+/* Call to Action Secundario */
+.servicios__cta-tarjeta {
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px; width: 100%; padding: 14px;
+  border-radius: var(--radius-sm);
+  color: #fff; font-weight: 700; font-size: 0.95rem;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.servicios__cta-tarjeta:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.15); transform: translateY(-2px); }
+
+/* ---- Responsive ---- */
+@media (max-width: 850px) {
+  .servicios__cuadricula { grid-template-columns: 1fr; max-width: 500px; }
+}
