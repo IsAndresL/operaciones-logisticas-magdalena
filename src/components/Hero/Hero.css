@@ -3,11 +3,12 @@
    ======================================== */
 .inicio {
   position: relative;
-  height: 100vh;
-  min-height: 650px;
+  height: 80vh;
+  min-height: 550px;
   overflow: hidden;
   display: flex;
-  align-items: flex-end;
+  align-items: center; /* Cambiado de flex-end a center para centrar en el espacio disponible */
+  padding-top: 116px; /* Altura total del header (44px tracking + 72px navbar) */
 }
 
 /* Carrusel de Fondo Animado */
@@ -36,47 +37,62 @@
   background: linear-gradient(135deg, rgba(13,27,62,0.85) 0%, rgba(21,96,189,0.7) 40%, rgba(0,191,255,0.4) 100%);
 }
 
-/* Marca de Agua Textual Transparente */
-.inicio__marca-agua {
-  position: absolute; inset: 0; z-index: 2;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-heading);
-  font-size: 18vw;
-  font-weight: 900;
-  color: rgba(255,255,255,0.05); /* Muy sutil para no distraer la lectura B2B */
-  pointer-events: none;
-  user-select: none;
-  line-height: 1;
-  overflow: hidden;
-}
+/* Marca de Agua eliminada a petición */
 
 /* Estructura Principal del Contenido */
 .inicio__contenido {
   position: relative; z-index: 3;
-  display: flex; align-items: flex-end; justify-content: space-between;
+  display: flex; align-items: center; justify-content: center; /* Centrado */
   gap: 48px;
-  padding-bottom: 80px;
   width: 100%;
 }
 
-.inicio__izquierda { max-width: 680px; }
+.inicio__izquierda { 
+  max-width: 800px; 
+  display: flex; /* Añadido flex */
+  flex-direction: column; /* Dirección columna */
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.inicio__izquierda--izq { text-align: left; align-items: flex-start; margin-right: auto; }
+.inicio__izquierda--centro { text-align: center; align-items: center; margin: 0 auto; }
+.inicio__izquierda--der { text-align: right; align-items: flex-end; margin-left: auto; }
 
 /* Títulos y Subtítulos */
 .inicio__titulo {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 6.5vw, 4.5rem); /* Ajuste dinámico responsivo */
   font-weight: 900;
   color: #fff;
   line-height: 1.05;
   margin-bottom: 20px;
 }
 
+.inicio__titulo--xl { font-size: clamp(2.5rem, 8vw, 5rem); }
+.inicio__titulo--lg { font-size: clamp(2rem, 6vw, 4rem); }
+.inicio__titulo--md { font-size: clamp(1.8rem, 4.5vw, 3rem); }
+
 .inicio__subtitulo {
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   color: rgba(255,255,255,0.9);
   font-weight: 500;
   margin-bottom: 32px;
-  max-width: 550px; /* Previene viudas en pantallas grandes */
+  max-width: 550px;
+  animation: inicio-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes inicio-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.inicio__titulo span {
+  display: inline-block;
+  animation: inicio-word-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes inicio-word-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Llamados a la Acción (CTA) */
@@ -85,17 +101,17 @@
 .inicio__cta-wa {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 16px 32px;
-  background: var(--verde-wa);
+  background: var(--magenta); /* Nuevo color vibrante */
   color: #fff;
   font-size: 1.05rem;
   font-weight: 700;
   border-radius: var(--radius-sm);
   transition: var(--transition-fast);
-  box-shadow: 0 8px 32px rgba(37,211,102,0.3);
+  box-shadow: 0 8px 32px rgba(245, 22, 166, 0.3);
 }
 .inicio__cta-wa:hover {
-  background: var(--verde-wa-hover);
-  box-shadow: 0 12px 40px rgba(37,211,102,0.4);
+  background: var(--magenta-hover);
+  box-shadow: 0 12px 40px rgba(245, 22, 166, 0.4);
   transform: translateY(-2px);
 }
 
@@ -105,52 +121,9 @@
   border-color: rgba(255,255,255,0.8);
 }
 
-/* Panel Derecho de Estadísticas Rápidas (Trust Indicators B2B) */
-.inicio__derecha {
-  display: flex; flex-direction: column; gap: 16px;
-  flex-shrink: 0;
-}
-
-.inicio__tarjeta-metrica {
-  background: rgba(255,255,255,0.15); /* Consistencia con Glassmorphism */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: var(--radius-lg);
-  padding: 20px 24px;
-  min-width: 220px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-  display: flex; flex-direction: column; gap: 2px;
-  position: relative;
-  transition: transform var(--transition-fast);
-}
-.inicio__tarjeta-metrica:hover {
-  transform: translateX(-4px); /* Micro-interacción técnica */
-}
-
-.inicio__icono-metrica {
-  width: 40px; height: 40px;
-  background: rgba(255,255,255,0.25);
-  border-radius: var(--radius-sm);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 8px;
-}
-.inicio__icono-metrica svg { color: #fff; }
-
-.inicio__valor-metrica {
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  font-weight: 900;
-  color: #fff;
-  line-height: 1.1;
-  margin-bottom: 2px;
-}
-
-.inicio__etiqueta-metrica {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.85);
-  line-height: 1.4;
+.inicio__indicador--activo {
+  width: 32px;
+  background: var(--magenta); /* Punto magenta corporativo */
 }
 
 /* Controles Base: Indicadores del Carrusel */
@@ -177,7 +150,8 @@
    ======================================== */
 @media (max-width: 968px) {
   .inicio {
-    min-height: 700px;
+    height: auto;
+    min-height: 550px;
   }
   .inicio__contenido {
     flex-direction: column; align-items: flex-start;

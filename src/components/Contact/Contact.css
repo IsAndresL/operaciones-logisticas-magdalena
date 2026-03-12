@@ -26,12 +26,12 @@
   transition: all 0.3s ease;
 }
 .cta__btn--primario {
-  background: var(--verde-wa); color: #fff;
-  box-shadow: 0 8px 32px rgba(37,211,102,0.3);
+  background: var(--magenta); color: #fff;
+  box-shadow: 0 8px 32px rgba(245, 22, 166, 0.3);
 }
 .cta__btn--primario:hover {
-  background: var(--verde-wa-hover); transform: scale(1.05);
-  box-shadow: 0 12px 40px rgba(37,211,102,0.4);
+  background: var(--magenta-hover); transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(245, 22, 166, 0.4);
 }
 .cta__flecha { transition: transform 0.3s ease; }
 .cta__btn--primario:hover .cta__flecha { transform: translateX(4px); }
@@ -106,13 +106,16 @@
 
 .contacto__enviar {
   width: 100%; padding: 16px; border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, var(--azul-primario), var(--azul-cielo));
+  background: var(--magenta);
   color: #fff; font-weight: 700; font-size: 1rem;
   display: flex; align-items: center; justify-content: center; gap: 8px;
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 .contacto__enviar:hover {
-  box-shadow: 0 8px 24px rgba(33, 118, 255, 0.3); transform: translateY(-2px);
+  background: var(--magenta-hover);
+  box-shadow: 0 8px 24px rgba(245, 22, 166, 0.3); transform: translateY(-2px);
 }
 
 .contacto__exito {

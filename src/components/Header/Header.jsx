@@ -8,6 +8,7 @@ const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`
 const navLinks = [
   { label: 'Servicios', href: '#servicios' },
   { label: 'Cobertura', href: '#cobertura' },
+  { label: 'Rastrear Guía', href: '#rastreo' },
   { label: 'Nosotros', href: '#nosotros' },
   { label: 'Contacto', href: '#contacto' },
 ]
@@ -16,31 +17,11 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [guia, setGuia] = useState('')
-  const [hideTracking, setHideTracking] = useState(false)
 
   useEffect(() => {
-    let lastScrollY = window.scrollY
-    let ticking = false
-
     const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const currentScrollY = window.scrollY
-          setScrolled(currentScrollY > 60)
-          
-          if (currentScrollY > lastScrollY && currentScrollY > 100) {
-            setHideTracking(true)
-          } else if (currentScrollY < lastScrollY) {
-            setHideTracking(false)
-          }
-
-          lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY
-          ticking = false
-        })
-        ticking = true
-      }
+      setScrolled(window.scrollY > 20)
     }
-
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -57,31 +38,8 @@ const Header = () => {
 
   return (
     <>
-      {/* Top tracking bar */}
-      <div className={`tracking-bar ${hideTracking ? 'tracking-bar--hidden' : ''}`} id="tracking-bar">
-        <div className="container tracking-bar__inner">
-          <span className="tracking-bar__label">Rastrea tu envio:</span>
-          <form className="tracking-bar__form" onSubmit={handleRastrear}>
-            <input
-              type="text"
-              className="tracking-bar__input"
-              placeholder="Ingresa tu numero de guia"
-              value={guia}
-              onChange={(e) => setGuia(e.target.value)}
-              id="input-rastrear-guia"
-              maxLength={30}
-              autoComplete="off"
-            />
-            <button type="submit" className="tracking-bar__btn" id="btn-rastrear">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-              <span className="tracking-bar__btn-text">Buscar</span>
-            </button>
-          </form>
-        </div>
-      </div>
-
       {/* Navbar */}
-      <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${hideTracking ? 'navbar--lifted' : ''}`} id="header-principal">
+      <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} id="header-principal">
         <div className="container navbar__inner">
           <a href="/" className="navbar__logo" id="header-logo">
             <img src="/logos/solo-logo.png" alt="OLM Logo" className="navbar__logo-img" width="48" height="48" />

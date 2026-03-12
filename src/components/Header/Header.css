@@ -1,85 +1,21 @@
 /* ========================================
-   Tracking Bar (top blue strip)
-   ======================================== */
-.tracking-bar {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: linear-gradient(90deg, #1560BD, #2176FF);
-  padding: 10px 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.tracking-bar--hidden {
-  transform: translateY(-100%);
-}
-.tracking-bar__inner {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.tracking-bar__label {
-  color: #fff;
-  font-weight: 600;
-  font-size: 0.88rem;
-  white-space: nowrap;
-}
-.tracking-bar__form {
-  display: flex;
-  gap: 8px;
-  flex: 1;
-  max-width: 400px;
-}
-.tracking-bar__input {
-  flex: 1;
-  padding: 8px 14px;
-  border-radius: var(--radius-sm);
-  border: none;
-  outline: none;
-  font-size: 0.88rem;
-  font-family: var(--font-body);
-}
-.tracking-bar__input:focus {
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.5);
-}
-.tracking-bar__btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 18px;
-  background: #fff;
-  color: #1560BD;
-  font-size: 0.88rem;
-  font-weight: 600;
-  border-radius: var(--radius-sm);
-  font-family: var(--font-body);
-  transition: var(--transition-fast);
-}
-.tracking-bar__btn:hover {
-  background: #f0f0f0;
-}
-
-/* ========================================
    Navbar
    ======================================== */
 .navbar {
   position: fixed;
-  top: 44px; /* Default top offset below tracking bar */
+  top: 0;
   left: 0;
   right: 0;
   z-index: 40;
   background: rgba(255,255,255,0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 .navbar--scrolled {
   background: rgba(255,255,255,0.95);
   backdrop-filter: blur(16px);
   box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-}
-.navbar--lifted {
-  transform: translateY(-44px);
 }
 
 .navbar__inner {
@@ -154,16 +90,16 @@
   align-items: center;
   gap: 8px;
   padding: 10px 20px;
-  background: var(--verde-wa);
+  background: var(--magenta); /* Cambiado de verde a magenta corporativo */
   color: #fff;
   font-size: 0.88rem;
   font-weight: 600;
   border-radius: var(--radius-sm);
   transition: background var(--transition-fast);
-  box-shadow: 0 2px 8px rgba(37,211,102,0.25);
+  box-shadow: 0 2px 8px rgba(245, 22, 166, 0.25);
 }
 .navbar__wa-btn:hover {
-  background: var(--verde-wa-hover);
+  background: var(--magenta-hover);
 }
 
 /* Burger */

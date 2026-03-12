@@ -12,19 +12,19 @@ const testimonials = [
   },
   {
     name: 'Carlos Andrés Bermúdez',
-    role: 'Director Comercial — Distribuidora Regional El Río',
+    role: 'Comerciante Independiente',
     city: 'El Banco, Magdalena',
     avatar: 'CA',
     rating: 5,
-    text: 'Nuestra alianza estratégica con OLM nos permitió expandir la distribución en el sur del Magdalena. Su cobertura operativa en zonas de difícil acceso como San Zenón es inigualable.',
+    text: 'He enviado y recibido varios paquetes con OLM. La atención es muy amable y siempre llegan a tiempo, incluso en municipios alejados. Me da mucha seguridad ver que cuidan mis envíos.',
   },
   {
     name: 'Luisa Paola Ariza',
-    role: 'Coordinadora de Envíos — Moda LPA Nacional',
+    role: 'Emprendedora — Moda LPA',
     city: 'Fundación, Magdalena',
     avatar: 'LP',
     rating: 5,
-    text: 'La trazabilidad y cumplimiento de OLM ha sido vital para nuestro e-commerce B2B. Minimizaron las devoluciones e incidencias de entrega, mejorando el nivel de servicio al cliente final.',
+    text: 'Como pequeña empresaria, necesito un aliado que cumpla. OLM gestiona mis despachos con total trazabilidad, lo que me ha permitido ganarme la confianza de mis clientes en todo el departamento.',
   },
   {
     name: 'Jorge Enrique Pinto',

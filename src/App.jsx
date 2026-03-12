@@ -2,6 +2,7 @@ import Header from './components/Header/Header'
 import Hero from './components/Hero/Hero'
 import Services from './components/Services/Services'
 import Coverage from './components/Coverage/Coverage'
+import Tracking from './components/Tracking/Tracking'
 import About from './components/About/About'
 import Testimonials from './components/Testimonials/Testimonials'
 import Contact from './components/Contact/Contact'
@@ -14,6 +15,8 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <hr className="section-divider" />
+        <Tracking />
         <hr className="section-divider" />
         <Services />
         <hr className="section-divider" />

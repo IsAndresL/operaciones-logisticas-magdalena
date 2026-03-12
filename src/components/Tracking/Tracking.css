@@ -1,0 +1,275 @@
+/* ========================================
+   Componente: Rastreo (Tracking)
+   ======================================== */
+.rastreo {
+  background: var(--bg-light);
+  position: relative;
+}
+
+.rastreo__contenedor {
+  max-width: 900px; /* Más compacto que las otras secciones para enfoque */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rastreo__buscador-caja {
+  width: 100%;
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: 0 12px 32px rgba(10, 25, 47, 0.08);
+  border: 1px solid var(--border-card);
+  margin-top: 16px;
+}
+
+.rastreo__formulario {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+.rastreo__input-grupo {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.rastreo__input-icono {
+  position: absolute;
+  left: 20px;
+  color: var(--text-body);
+  opacity: 0.7;
+}
+
+.rastreo__input {
+  width: 100%;
+  padding: 18px 20px 18px 56px;
+  background: var(--bg-lighter);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--text-navy);
+  transition: all var(--transition-fast);
+}
+
+.rastreo__input::placeholder {
+  color: rgba(10, 25, 47, 0.4);
+}
+
+.rastreo__input:focus {
+  outline: none;
+  border-color: var(--azul-primario);
+  background: var(--bg-white);
+  box-shadow: 0 0 0 4px rgba(33, 118, 255, 0.1);
+}
+
+.rastreo__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--magenta); /* Cambiado a magenta */
+  color: white;
+  padding: 0 32px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  white-space: nowrap;
+}
+
+.rastreo__btn:hover {
+  background: var(--magenta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(245, 22, 166, 0.25);
+}
+
+.rastreo__btn:disabled {
+  background: var(--border-card);
+  color: var(--text-body);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.rastreo__spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---- Resultados de Rastreo ---- */
+.rastreo__resultado {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border-card);
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.zoom-in-up {
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  animation: zoomInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes zoomInUp {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.rastreo__res-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.rastreo__res-titulo {
+  font-family: var(--font-heading);
+  color: var(--text-navy);
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.rastreo__res-desc {
+  color: var(--text-body);
+  font-size: 0.9rem;
+}
+
+.rastreo__etiqueta {
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.rastreo__etiqueta--en-tránsito,
+.rastreo__etiqueta--en-transito {
+  background: rgba(33, 118, 255, 0.1);
+  color: var(--azul-primario);
+}
+
+.rastreo__etiqueta--entregado {
+  background: rgba(37, 211, 102, 0.1);
+  color: #1eaf53;
+}
+
+/* Progress Timeline */
+.rastreo__linea-tiempo {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.rastreo__linea-tiempo::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: var(--border-card);
+  z-index: 0;
+}
+
+.rastreo__paso {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 25%;
+}
+
+.rastreo__paso-icono {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--bg-white);
+  border: 2px solid var(--border-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.rastreo__paso-punto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-card);
+}
+
+.rastreo__paso-texto {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-body);
+  text-align: center;
+}
+
+.rastreo__paso--completado .rastreo__paso-icono {
+  background: var(--magenta); /* Cambiado a magenta */
+  border-color: var(--magenta);
+}
+
+.rastreo__paso--completado .rastreo__paso-texto {
+  color: var(--text-navy);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .rastreo__formulario {
+    flex-direction: column;
+  }
+  
+  .rastreo__btn {
+    padding: 16px;
+  }
+
+  .rastreo__buscador-caja {
+    padding: 24px;
+  }
+
+  .rastreo__res-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .rastreo__linea-tiempo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    padding-left: 20px;
+  }
+
+  .rastreo__linea-tiempo::before {
+    top: 0;
+    bottom: 0;
+    left: 34px;
+    right: auto;
+    width: 2px;
+    height: 100%;
+  }
+
+  .rastreo__paso {
+    flex-direction: row;
+    width: 100%;
+  }
+}

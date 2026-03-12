@@ -5,6 +5,7 @@ import './Footer.css'
 const navLinks = [
   { label: 'Servicios', href: '#servicios' },
   { label: 'Cobertura', href: '#cobertura' },
+  { label: 'Rastrear Guía', href: '#rastreo' },
   { label: 'Nosotros', href: '#nosotros' },
 ]
 
